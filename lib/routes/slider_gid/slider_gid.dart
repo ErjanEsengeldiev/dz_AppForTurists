@@ -74,8 +74,10 @@ class _PageForm extends StatelessWidget {
           Text(text),
           isTrue == true
               ? ElevatedButton(
-                  child: Text('Push'),
-                  onPressed: () {},
+                  child: const Text('Push'),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/mianscreen');
+                  },
                 )
               : const SizedBox(),
         ],

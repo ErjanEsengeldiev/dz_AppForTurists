@@ -1,11 +1,7 @@
 import 'package:dz_ambulance/colors/color.dart';
 import 'package:flutter/material.dart';
-
-import 'institutions/embassy/embassy.dart';
 import 'institutions/hotels/hotels.dart';
-import 'institutions/medicin/medicine.dart';
-import 'institutions/police/police.dart';
-import 'institutions/transport/transport.dart';
+import 'exeple_of_service.dart';
 
 class ServiseNumbers extends StatelessWidget {
   const ServiseNumbers({Key? key}) : super(key: key);
@@ -27,18 +23,14 @@ class ServiseNumbers extends StatelessWidget {
               fontWeight: FontWeight.w500),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: const [
-              Medicine(),
-              Police(),
-              Embssy(),
-              Transport(),
-              Hotels(),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            ...listOfExeoleForService.map((element) => element).toList(),
+            const Hotels(),
+          ],
         ),
       ),
     );

@@ -1,8 +1,16 @@
 import 'package:dz_ambulance/colors/color.dart';
 import 'package:flutter/material.dart';
 
-class Medicine extends StatelessWidget {
-  const Medicine({
+class ExeoleForServiceScreen extends StatelessWidget {
+  final String navigationRoudName;
+  final String nameOfColumn;
+  final String imageRoud;
+  final String title;
+  const ExeoleForServiceScreen({
+    required this.navigationRoudName,
+    required this.nameOfColumn,
+    required this.imageRoud,
+    required this.title,
     Key? key,
   }) : super(key: key);
 
@@ -13,9 +21,9 @@ class Medicine extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Медицина',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+          Text(
+            nameOfColumn,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             height: 24,
@@ -30,7 +38,7 @@ class Medicine extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10))),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/ambulanceCall');
+                    Navigator.pushNamed(context, navigationRoudName);
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -38,14 +46,14 @@ class Medicine extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        Image(image: AssetImage('assets/images/Vector().png')),
-                        SizedBox(
+                      children: [
+                        Image(image: AssetImage(imageRoud)),
+                        const SizedBox(
                           width: 35,
                         ),
                         Text(
-                          'Единый телефон\nслужб',
-                          style: TextStyle(
+                          title,
+                          style: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w600),
                         )
                       ],
@@ -89,3 +97,26 @@ class Medicine extends StatelessWidget {
     );
   }
 }
+
+List<ExeoleForServiceScreen> listOfExeoleForService = const [
+  ExeoleForServiceScreen(
+      navigationRoudName: '/ambulanceCall',
+      nameOfColumn: 'Медицина',
+      imageRoud: 'assets/images/Vector().png',
+      title: 'Единый телефон\nслужб'),
+  ExeoleForServiceScreen(
+      navigationRoudName: '/policeCall',
+      nameOfColumn: 'Полиция',
+      imageRoud: 'assets/images/Vector().png',
+      title: 'Единый телефон\nслужб'),
+  ExeoleForServiceScreen(
+      navigationRoudName: '/embessycall',
+      nameOfColumn: 'Посольство',
+      imageRoud: 'assets/images/Vector().png',
+      title: 'Единый телефон\nслужб'),
+  ExeoleForServiceScreen(
+      navigationRoudName: '/addTaxiDrivers',
+      nameOfColumn: 'Транспорт',
+      imageRoud: 'assets/images/Vector().png',
+      title: 'Единый телефон\nслужб'),
+];
